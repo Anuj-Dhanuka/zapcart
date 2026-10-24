@@ -1,7 +1,7 @@
 import { getJson } from '../../lib/http.ts'
 import type { Category, Product, ProductListResponse, ProductSummary } from './types.ts'
 
-const LIST_FIELDS = 'title,price,rating,thumbnail,brand,category'
+const LIST_FIELDS = 'title,price,rating,thumbnail,brand,category,availabilityStatus'
 
 // Fetches one product list endpoint with every item and only the fields the listing page needs
 async function fetchList(path: string, signal?: AbortSignal): Promise<ProductSummary[]> {

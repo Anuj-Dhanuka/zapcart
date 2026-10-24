@@ -4,7 +4,7 @@ import type { ProductFilters, ProductSummary } from './types.ts'
 
 // Builds a small fake product; only the fields a test cares about need to be given
 function product(id: number, price: number, brand?: string): ProductSummary {
-  return { id, title: `Product ${id}`, price, rating: 4, thumbnail: '', category: 'test', brand }
+  return { id, title: `Product ${id}`, price, rating: 4, thumbnail: '', category: 'test', brand, availabilityStatus: 'In Stock' }
 }
 
 const products = [

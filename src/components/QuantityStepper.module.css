@@ -1,0 +1,42 @@
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+}
+
+.fullWidth {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.step {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.step:hover:not(:disabled) {
+  background: var(--color-primary-subtle);
+  color: var(--color-primary-hover);
+}
+
+.step:disabled {
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+}
+
+.value {
+  min-width: 2rem;
+  font-weight: 600;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}

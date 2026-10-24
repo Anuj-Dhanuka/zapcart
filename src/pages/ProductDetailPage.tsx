@@ -1,11 +1,13 @@
 import { useLocation, useNavigate, useParams } from 'react-router'
 import { ErrorState } from '../components/ErrorState.tsx'
 import { Spinner } from '../components/Spinner.tsx'
+import { AddToCartButton } from '../features/cart/components/AddToCartButton.tsx'
 import { ProductGallery } from '../features/products/components/ProductGallery.tsx'
 import { ProductInfo } from '../features/products/components/ProductInfo.tsx'
 import { ReviewList } from '../features/products/components/ReviewList.tsx'
 import { useProduct } from '../features/products/hooks/useProduct.ts'
 import { parseProductId } from '../features/products/productId.ts'
+import { formatPrice } from '../lib/format.ts'
 import { ApiError } from '../lib/http.ts'
 import styles from './ProductDetailPage.module.css'
 
@@ -24,11 +26,17 @@ function BackButton() {
   )
 }
 
-// Loads one product and shows it, or a not-found / retryable error
+// Loads one product and shows it with a buy bar pinned to the bottom of the screen, or a not-found / retryable error
 function ProductDetails({ id }: { id: number }) {
   const product = useProduct(id)
 
-  if (product.status === 'loading') return <Spinner label="Loading product…" />
+  if (product.status === 'loading') {
+    return (
+      <div className={styles.loading}>
+        <Spinner label="Loading product…" />
+      </div>
+    )
+  }
   if (product.status === 'error') {
     return product.error instanceof ApiError && product.error.status === 404 ? (
       <ErrorState title="Product not found" message={NOT_FOUND_MESSAGE} />
@@ -48,6 +56,13 @@ function ProductDetails({ id }: { id: number }) {
           <ReviewList reviews={item.reviews} />
         </div>
       </div>
+      <section className={styles.buyBar} aria-label="Buy this product">
+        <div className={styles.buyInfo}>
+          <p className={styles.buyTitle}>{item.title}</p>
+          <p className={styles.buyPrice}>{formatPrice(item.price)}</p>
+        </div>
+        <AddToCartButton product={item} />
+      </section>
     </>
   )
 }

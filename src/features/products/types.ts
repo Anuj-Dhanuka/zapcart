@@ -4,7 +4,7 @@ export type Category = {
   name: string
 }
 
-// The slim product used on the listing page (fetched with ?select=...); some products have no brand
+// The slim product used on the listing page (fetched with ?select=...); some products have no brand, and the stock status lets cards disable Add to cart
 export type ProductSummary = {
   id: number
   title: string
@@ -13,6 +13,7 @@ export type ProductSummary = {
   thumbnail: string
   category: string
   brand?: string
+  availabilityStatus: 'In Stock' | 'Low Stock' | 'Out of Stock'
 }
 
 // One customer review, shown on the detail page
@@ -28,7 +29,6 @@ export type Product = ProductSummary & {
   description: string
   images: string[]
   reviews: Review[]
-  availabilityStatus: 'In Stock' | 'Low Stock' | 'Out of Stock'
 }
 
 // The wrapper every list endpoint returns

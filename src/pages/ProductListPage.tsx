@@ -3,6 +3,7 @@ import { Navigate } from 'react-router'
 import { ErrorState } from '../components/ErrorState.tsx'
 import { Pagination } from '../components/Pagination.tsx'
 import { Spinner } from '../components/Spinner.tsx'
+import { AddToCartButton } from '../features/cart/components/AddToCartButton.tsx'
 import { BrandFilter } from '../features/products/components/BrandFilter.tsx'
 import { CategoryFilter } from '../features/products/components/CategoryFilter.tsx'
 import { FilterSidebar } from '../features/products/components/FilterSidebar.tsx'
@@ -49,6 +50,7 @@ export function ProductListPage() {
       </FilterSidebar>
       <section className={styles.results}>
         <div className={styles.content}>
+          <title>{filters.search ? `Results for "${filters.search}" · zapcart` : 'Products · zapcart'}</title>
           <h1 ref={heading} tabIndex={-1}>
             {filters.search ? `Results for "${filters.search}"` : 'Products'}
           </h1>
@@ -56,7 +58,11 @@ export function ProductListPage() {
             {products.status === 'success' && `${filtered.length} ${filtered.length === 1 ? 'product' : 'products'} found`}
           </p>
           {pageOutOfRange && <Navigate to={hrefFor(current.page)} replace />}
-          {products.status === 'loading' && <Spinner label="Loading products…" />}
+          {products.status === 'loading' && (
+            <div className={styles.loading}>
+              <Spinner label="Loading products…" />
+            </div>
+          )}
           {products.status === 'error' && (
             <ErrorState message={products.error.message} onRetry={products.retry} />
           )}
@@ -77,7 +83,12 @@ export function ProductListPage() {
               )}
             </div>
           )}
-          {products.status === 'success' && filtered.length > 0 && <ProductGrid products={current.items} />}
+          {products.status === 'success' && filtered.length > 0 && (
+            <ProductGrid
+              products={current.items}
+              renderAction={(product) => <AddToCartButton product={product} variant="compact" />}
+            />
+          )}
         </div>
         {products.status === 'success' && (
           <div className={styles.pager}>

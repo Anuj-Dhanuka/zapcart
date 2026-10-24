@@ -1,5 +1,6 @@
 import { useEffect, useRef, type FormEvent } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router'
+import { CartButton } from '../features/cart/components/CartButton.tsx'
 import { useFiltersPanel } from '../features/products/filtersPanel.ts'
 import { useMediaQuery } from '../hooks/useMediaQuery.ts'
 import { parseFilterParams, toFilterParams } from '../features/products/hooks/useProductFilters.ts'
@@ -12,7 +13,7 @@ function readSearch(text: string): string | null {
   return text.trim() || null
 }
 
-// The top bar on every page: filters menu button (listing only; toggles the sidebar on large screens, opens the panel on small ones), logo home link, and a product search that updates live on the listing and on Enter everywhere
+// The top bar on every page: filters menu button (listing only; toggles the sidebar on large screens, opens the panel on small ones), logo home link, a product search that updates live on the listing and on Enter everywhere, and the cart button
 export function Header() {
   const location = useLocation()
   const navigate = useNavigate()
@@ -88,6 +89,7 @@ export function Header() {
             onChange={handleInput}
           />
         </form>
+        <CartButton />
       </div>
     </header>
   )

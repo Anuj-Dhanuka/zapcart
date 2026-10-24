@@ -25,6 +25,17 @@
   padding-bottom: var(--space-6);
 }
 
+.content:has(.loading) {
+  display: flex;
+  flex-direction: column;
+}
+
+.loading {
+  flex: 1;
+  display: grid;
+  place-items: center;
+}
+
 .pager {
   container: pager / inline-size;
   position: sticky;

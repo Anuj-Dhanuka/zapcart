@@ -1,0 +1,35 @@
+.button {
+  position: relative;
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-inline-end: calc(-1 * var(--space-2));
+  border: none;
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--color-header-text);
+  cursor: pointer;
+}
+
+.button:focus-visible {
+  outline-color: var(--color-header-focus);
+}
+
+.badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  padding: 0 var(--space-1);
+  border-radius: var(--radius-full);
+  background: var(--color-badge-bg);
+  color: var(--color-badge-text);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+}
