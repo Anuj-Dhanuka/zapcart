@@ -14,7 +14,7 @@ function readSearch(text: string): string | null {
   return text.trim() || null
 }
 
-// The top bar on every page: filters menu button (listing only; toggles the sidebar on large screens, opens the panel on small ones), logo home link, a product search that updates live on the listing and on Enter everywhere, the light/dark theme switch, and the cart button
+// The top bar on every page (two rows on phones, with search full width below): filters menu button (listing only; toggles the sidebar on large screens, opens the panel on small ones), logo home link, a product search that updates live on the listing and on Enter everywhere, the light/dark theme switch, and the cart button
 export function Header() {
   const location = useLocation()
   const navigate = useNavigate()
@@ -90,8 +90,10 @@ export function Header() {
             onChange={handleInput}
           />
         </form>
-        <ThemeToggle />
-        <CartButton />
+        <div className={styles.actions}>
+          <ThemeToggle />
+          <CartButton />
+        </div>
       </div>
     </header>
   )
