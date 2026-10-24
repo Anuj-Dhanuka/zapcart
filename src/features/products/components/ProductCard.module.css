@@ -26,6 +26,8 @@
   margin-inline: auto;
   aspect-ratio: 1 / 1;
   object-fit: contain;
+  border-radius: var(--radius-sm);
+  background: var(--color-image-bg);
 }
 
 .title {

@@ -1,0 +1,17 @@
+.button {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-inline-end: calc(-1 * var(--space-3));
+  border: none;
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--color-header-text);
+  cursor: pointer;
+}
+
+.button:focus-visible {
+  outline-color: var(--color-header-focus);
+}

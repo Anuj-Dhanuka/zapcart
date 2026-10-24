@@ -1,18 +1,8 @@
+import { browserStorage } from '../../lib/storage.ts'
 import type { AppStore } from '../../store/store.ts'
 import { MAX_QUANTITY, selectCartItems, type CartItem } from './cartSlice.ts'
 
 export const CART_STORAGE_KEY = 'zapcart:cart:v1'
-
-type KeyValueStorage = Pick<Storage, 'getItem' | 'setItem'>
-
-// The browser's localStorage, or null where it can't be used (private mode, blocked site data, tests)
-function browserStorage(): KeyValueStorage | null {
-  try {
-    return globalThis.localStorage ?? null
-  } catch {
-    return null
-  }
-}
 
 // Checks one saved entry really is a cart item, since anything can end up in localStorage
 function isCartItem(value: unknown): value is CartItem {

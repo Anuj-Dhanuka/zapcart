@@ -5,6 +5,7 @@ import { useFiltersPanel } from '../features/products/filtersPanel.ts'
 import { useMediaQuery } from '../hooks/useMediaQuery.ts'
 import { parseFilterParams, toFilterParams } from '../features/products/hooks/useProductFilters.ts'
 import styles from './Header.module.css'
+import { ThemeToggle } from './ThemeToggle.tsx'
 
 const LIVE_SEARCH_DELAY_MS = 300
 
@@ -13,7 +14,7 @@ function readSearch(text: string): string | null {
   return text.trim() || null
 }
 
-// The top bar on every page: filters menu button (listing only; toggles the sidebar on large screens, opens the panel on small ones), logo home link, a product search that updates live on the listing and on Enter everywhere, and the cart button
+// The top bar on every page: filters menu button (listing only; toggles the sidebar on large screens, opens the panel on small ones), logo home link, a product search that updates live on the listing and on Enter everywhere, the light/dark theme switch, and the cart button
 export function Header() {
   const location = useLocation()
   const navigate = useNavigate()
@@ -89,6 +90,7 @@ export function Header() {
             onChange={handleInput}
           />
         </form>
+        <ThemeToggle />
         <CartButton />
       </div>
     </header>

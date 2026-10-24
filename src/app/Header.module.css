@@ -2,6 +2,7 @@
   position: sticky;
   top: 0;
   z-index: var(--z-header);
+  box-shadow: inset 0 -1px 0 var(--color-header-border);
   background: var(--color-header-bg);
   color: var(--color-header-text);
 }
@@ -67,6 +68,7 @@
   padding: var(--space-2) var(--space-3) var(--space-2) calc(var(--space-3) * 2 + 18px);
   border: 2px solid transparent;
   border-radius: var(--radius-sm);
+  color-scheme: light;
 }
 
 .input:focus {

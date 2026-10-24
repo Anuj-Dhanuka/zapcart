@@ -89,7 +89,7 @@
   width: 4rem;
   height: 4rem;
   border-radius: var(--radius-sm);
-  background: var(--color-bg);
+  background: var(--color-image-bg);
   object-fit: contain;
 }
 
