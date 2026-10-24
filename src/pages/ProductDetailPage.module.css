@@ -33,12 +33,17 @@
 .details {
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
+  gap: var(--space-5);
 }
 
 @media (min-width: 768px) {
   .layout {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    align-items: start;
+    grid-template-columns: minmax(0, 34rem) minmax(0, 1fr);
+    align-items: stretch;
+  }
+
+  .details {
+    padding-left: var(--space-6);
+    border-left: 1px solid var(--color-border);
   }
 }

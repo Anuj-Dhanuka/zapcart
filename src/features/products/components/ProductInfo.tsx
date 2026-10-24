@@ -20,10 +20,10 @@ export function ProductInfo({ product }: ProductInfoProps) {
   return (
     <div className={styles.info}>
       <h1 className={styles.title}>{product.title}</h1>
-      <div className={styles.rating}>
+      <div className={styles.priceRow}>
+        <p className={styles.price}>{formatPrice(product.price)}</p>
         <StarRating value={product.rating} />
       </div>
-      <p className={styles.price}>{formatPrice(product.price)}</p>
       {availability && (
         <p className={styles.availability} data-tone={availability.tone}>
           <span className={styles.dot} aria-hidden="true" />

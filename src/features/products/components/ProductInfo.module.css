@@ -10,8 +10,11 @@
   font-size: var(--font-size-2xl);
 }
 
-.rating {
-  font-size: var(--font-size-lg);
+.priceRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
 }
 
 .price {
@@ -49,28 +52,33 @@
   display: grid;
   gap: var(--space-2);
   margin: 0;
-  padding-block: var(--space-3);
-  border-block: 1px solid var(--color-divider);
 }
 
 .facts div {
-  display: grid;
-  grid-template-columns: 6rem 1fr;
+  display: flex;
+  gap: var(--space-1);
 }
 
 .facts dt {
-  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.facts dt::after {
+  content: ':';
 }
 
 .facts dd {
   margin: 0;
-  font-weight: 600;
+  color: var(--color-text-secondary);
 }
 
 .description {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
+  margin-top: var(--space-3);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-border);
 }
 
 .sectionTitle {
