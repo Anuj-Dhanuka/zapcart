@@ -1,0 +1,100 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.pages {
+  display: none;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.page,
+.current,
+.gap {
+  display: grid;
+  place-items: center;
+  min-width: 2.25rem;
+  height: 2.25rem;
+  padding: 0 var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+.page {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.page:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.current {
+  border: 1px solid var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-weight: 600;
+}
+
+.gap {
+  color: var(--color-text-muted);
+}
+
+.step {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  height: 2.25rem;
+  padding: 0 var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+a.step:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.step[aria-disabled='true'] {
+  color: var(--color-text-muted);
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.compact {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+/* Phones: arrows only (their words stay for screen readers) and "Page X of Y" instead of numbers */
+@media (max-width: 639px) {
+  .stepLabel {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+}
+
+@media (min-width: 640px) {
+  .pages {
+    display: flex;
+  }
+
+  .compact {
+    display: none;
+  }
+}

@@ -1,0 +1,26 @@
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+}
+
+.stars {
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+  color: var(--color-star-empty);
+}
+
+.filled {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  color: var(--color-star);
+}
+
+.value {
+  font-size: 0.85em;
+  color: var(--color-text-muted);
+}
