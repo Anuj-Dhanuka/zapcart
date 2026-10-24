@@ -2,7 +2,7 @@
 
 An Amazon-style product listing and detail app built with React, TypeScript and the [DummyJSON products API](https://dummyjson.com/docs/products). It was built as the Front End Developer (ReactJS) take-home assessment for Leegality.
 
-**Live demo:** _link added after deployment_
+**Live demo:** [zapcart-anuj.netlify.app](https://zapcart-anuj.netlify.app/)
 
 ## Features
 
@@ -69,7 +69,7 @@ npm run dev          # http://localhost:5173
 | `npm test` | Unit tests in watch mode (`npx vitest run` runs them once) |
 | `npm run lint` | ESLint |
 
-**Deploying:** this is a single-page app, so the host must serve `index.html` for every path. Otherwise, refreshing `/product/42` returns a 404 from the host.
+**Deploying:** the live demo is on Netlify, set up by `netlify.toml` (build command, `dist` folder, Node 22). Because this is a single-page app, the host must serve `index.html` for every path; `netlify.toml` does that, so refreshing `/product/42` works instead of returning a 404.
 
 ## Assumptions made
 
